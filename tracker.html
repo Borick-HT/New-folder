@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Theo Dõi Lịch Trình Sinh Viên</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .schedule {
+      list-style: none;
+      padding: 0;
+    }
+    .schedule li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .schedule button {
+      width: auto;
+      padding: 5px 10px;
+      background-color: #dc3545;
+    }
+    .schedule button:hover {
+      background-color: #a71d2a;
+    }
+    .log {
+      margin-top: 20px;
+      background: #e9ecef;
+      padding: 10px;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+    .log p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Theo Dõi Lịch Trình</h1>
+    <form id="schedule-form">
+      <input type="text" id="event" placeholder="Nhập sự kiện của bạn" required>
+      <input type="datetime-local" id="time" required>
+      <button type="submit">Thêm Sự Kiện</button>
+    </form>
+    <ul class="schedule" id="schedule-list"></ul>
+    <div class="log" id="activity-log">
+      <h3>Nhật Ký Hoạt Động</h3>
+    </div>
+  </div>
+
+  <script>
+    const logActivity = (message) => {
+      const log = document.getElementById('activity-log');
+      const logEntry = document.createElement('p');
+      logEntry.textContent = `${new Date().toLocaleString()}: ${message}`;
+      log.appendChild(logEntry);
+      log.scrollTop = log.scrollHeight;
+    };
+
+    document.getElementById('schedule-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const eventInput = document.getElementById('event');
+      const timeInput = document.getElementById('time');
+      const scheduleList = document.getElementById('schedule-list');
+
+      const eventText = eventInput.value;
+      const timeText = new Date(timeInput.value).toLocaleString();
+
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span>${eventText} - ${timeText}</span>
+        <button onclick="deleteEvent(this, '${eventText}')">Xóa</button>
+      `;
+
+      scheduleList.appendChild(li);
+
+      logActivity(`Đã thêm sự kiện: "${eventText}" vào ${timeText}`);
+
+      // Clear inputs
+      eventInput.value = '';
+      timeInput.value = '';
+    });
+
+    const deleteEvent = (button, eventText) => {
+      button.parentElement.remove();
+      logActivity(`Đã xóa sự kiện: "${eventText}"`);
+    };
+  </script>
+</body>
+</html>
