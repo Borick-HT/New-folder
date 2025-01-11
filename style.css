@@ -1,23 +1,14 @@
-/* General Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f4f4;
-}
-
-/* Header */
-header {
-  background-color: #002a5c;
-  color: white;
-  padding: 10px 0;
+  background-color: #f8f9fa;
 }
 
 nav ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
-  padding: 0;
+  background-color: #002a5c;
 }
 
 nav ul li {
@@ -30,345 +21,63 @@ nav ul li a {
   font-size: 16px;
 }
 
-/* GIS Search Section */
-.gis-search {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
-.gis-search h1 {
-  font-size: 24px;
-  color: #002a5c;
-}
-
-.gis-search label {
-  font-size: 14px;
-  display: block;
-  margin-bottom: 10px;
-}
-
-.gis-search input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.gis-search button {
-  width: 100%;
-  padding: 10px;
-  background-color: #002a5c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.gis-search button:hover {
-  background-color: #004a8c;
-}
-
-/* Map Container */
-.map-container {
-  width: 90%;
-  max-width: 800px;
-  margin: 30px auto;
-  text-align: center;
-}
-
-.map-container h2 {
-  font-size: 20px;
-  color: #002a5c;
-  margin-bottom: 10px;
-}
-
-#map iframe {
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  width: 100%;
-  height: 200px;
-}
-
-/* Footer */
 footer {
   background-color: #002a5c;
   color: white;
-  padding: 20px 40px;
-  font-size: 14px;
+  padding: 30px 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.footer-info address {
-  line-height: 1.8;
+.footer-info {
+  max-width: 400px;
+}
+
+.footer-map-social {
+  max-width: 500px;
 }
 
 .social-media {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.social-media a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 14px;
-}
-
-.social-media a:hover {
-  text-decoration: underline;
-}
-
-/* Login Form */
-.login-form {
-  background: white;
-  width: 90%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.login-form h1 {
-  text-align: center;
-  font-size: 24px;
-  color: #002a5c;
-}
-
-.login-form label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.login-form input {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.login-form input:focus {
-  border-color: #004a8c;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 74, 140, 0.5);
-}
-
-.login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #002a5c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.login-form button:hover {
-  background-color: #004a8c;
-}
-
-.login-form a {
-  text-align: center;
-  display: block;
   margin-top: 10px;
-  color: #002a5c;
-  text-decoration: none;
 }
 
-.login-form a:hover {
-  text-decoration: underline;
+/* Mặc định hiển thị form đăng nhập */
+#login-section {
+  display: flex; /* Căn giữa form */
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Đặt chiều cao 100% màn hình */
 }
 
-/* Register Form */
-.register-form {
-  background: white;
-  width: 90%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Ẩn nội dung khi chưa đăng nhập */
+#main-content {
+  display: none;
 }
 
-.register-form h1 {
-  text-align: center;
-  font-size: 24px;
-  color: #002a5c;
+.modal-content {
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.register-form label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.register-form input {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.register-form input:focus {
-  border-color: #004a8c;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 74, 140, 0.5);
-}
-
-.register-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #002a5c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.register-form button:hover {
-  background-color: #004a8c;
-}
-
-.register-form a {
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-  color: #002a5c;
-  text-decoration: none;
-}
-
-.register-form a:hover {
-  text-decoration: underline;
-}
-
-.route-planning {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.route-planning h2 {
-  font-size: 20px;
-  color: #002a5c;
-  text-align: center;
-}
-
-.route-planning label {
-  font-size: 14px;
-  margin-bottom: 5px;
-  display: block;
-}
-
-.route-planning input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.route-planning button {
-  width: 100%;
-  padding: 10px;
-  background-color: #002a5c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.route-planning button:hover {
-  background-color: #004a8c;
-}
-
-#route-result {
-  margin-top: 20px;
-  padding: 10px;
-  background: #f4f4f4;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.schedule-tracking {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.schedule-tracking h2 {
-  font-size: 20px;
-  color: #002a5c;
-  text-align: center;
-}
-
-#schedule-list {
-  margin-top: 10px;
-  background: #f4f4f4;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.incident-alert {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.incident-alert h2 {
-  font-size: 20px;
-  color: #c0392b;
-  text-align: center;
-}
-
-#incident-list {
-  margin-top: 10px;
-  background: #f9e5e5;
-  padding: 10px;
-  border: 1px solid #e74c3c;
-  border-radius: 4px;
-}
-
-.report-statistics {
-  background: white;
-  width: 90%;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.report-statistics h2 {
-  font-size: 20px;
-  color: #002a5c;
-  text-align: center;
+.modal-dialog {
+  max-width: 600px !important;
 }
